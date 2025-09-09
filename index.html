@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parabéns Cantados — letra e música personalizadas em PT-PT</title>
+  <meta name="description" content="Oferece a melhor prenda de sempre! Música de aniversário personalizada (letra e voz profissionais em português de Portugal) entregue rapidamente. Também encomendamos bolos nas melhores pastelarias parceiras." />
+  <link rel="canonical" href="https://parabenscantados.me/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph / WhatsApp / Messenger preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://parabenscantados.me/" />
+  <meta property="og:title" content="Parabéns Cantados — a prenda mais memorável" />
+  <meta property="og:description" content="Letra e música personalizadas, cantadas em português de Portugal e entregues rapidamente. Surpreende a pessoa de anos com algo único!" />
+  <meta property="og:image" content="https://images.pexels.com/photos/7561326/pexels-photo-7561326.jpeg" />
+  <meta property="og:image:alt" content="Amigos a festejar aniversário" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Parabéns Cantados — a prenda mais memorável" />
+  <meta name="twitter:description" content="Música personalizada de aniversário com voz profissional (PT-PT)." />
+  <meta name="twitter:image" content="https://images.pexels.com/photos/7561326/pexels-photo-7561326.jpeg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Paleta base (vibrante) */
+      --c-bg: #0b0b12;
+      --c-ink: #f7fbff;
+      --c-ink-dim: #c8d1dc;
+      --c-1: #7c3aed; /* roxo */
+      --c-2: #f97316; /* laranja */
+      --c-3: #06b6d4; /* ciano */
+      --c-4: #22c55e; /* verde */
+      --shadow-card: 0 20px 60px rgba(16,16,40,.35);
+      --radius-xl: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--c-bg); color: var(--c-ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+      overflow-x: hidden; /* Evita transbordo horizontal em Android */
+      -webkit-text-size-adjust: 100%;
+    }
+    img { max-width: 100%; height: auto; }
+    a { color: var(--c-3); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* BG decorativo seguro para mobile */
+    .bg-anim { position: fixed; inset: 0; pointer-events:none; z-index: -1; }
+    .bg-anim::before, .bg-anim::after {
+      content: ""; position: absolute; inset: -20% -20% auto -20%; height: 70vh; filter: blur(40px) saturate(140%);
+      background:
+        radial-gradient(800px 600px at 10% 20%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(800px 600px at 80% 20%, rgba(6,182,212,.35), transparent 60%),
+        radial-gradient(800px 600px at 50% 100%, rgba(249,115,22,.35), transparent 60%);
+      animation: move-bg 22s ease-in-out infinite alternate;
+    }
+    @keyframes move-bg {
+      0% { transform: translateY(-6px) scale(1); }
+      50% { transform: translateY(8px) scale(1.04); }
+      100% { transform: translateY(-2px) scale(1.02); }
+    }
+
+    /* Notas musicais flutuantes */
+    #notes { pointer-events: none; position: fixed; inset: 0; overflow: hidden; }
+    .note { position: absolute; font-size: clamp(14px, 2.2vw, 28px); opacity: .65; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+    .note:nth-child(odd) { color: var(--c-2); }
+    .note:nth-child(even) { color: var(--c-1); }
+    @keyframes floaty { from { transform: translateY(0) rotate(0deg);} to { transform: translateY(-120vh) rotate(360deg);} }
+
+    /* Layout */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 16px; }
+    header { padding: 10px 0; position: sticky; top: 0; backdrop-filter: saturate(140%) blur(8px); background: rgba(11,11,18,.72); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 30; }
+    header .wrap { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .brand { display:flex; gap:10px; align-items:center; min-width:0; }
+    .brand b { font-family: Poppins, Inter, sans-serif; font-weight:800; letter-spacing:.2px; white-space:nowrap; font-size: 1.05rem; }
+    nav { display:flex; gap:10px; flex-wrap:wrap; }
+    nav a { color: var(--c-ink-dim); font-weight:700; font-size:.95rem; }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1fr; gap:16px; padding: 20px 0 8px; }
+    .hero h1 { font-family: Poppins, Inter, sans-serif; font-weight:800; font-size: clamp(26px, 7vw, 48px); line-height:1.07; margin:0; }
+    .gradient-text { background: linear-gradient(90deg, #fff 0%, #c7efff 35%, #ffe2bd 75%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { margin: 4px 0 8px; color: var(--c-ink-dim); font-size: clamp(15px, 1.9vw, 18px); }
+    .cta { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius: 14px;
+      background: linear-gradient(120deg, var(--c-1), var(--c-2)); color:#fff; font-weight:800; box-shadow:0 10px 28px rgba(124,58,237,.35);
+    }
+
+    /* Player */
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.10); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); padding: 14px; }
+    .player { display:grid; grid-template-columns: 56px 1fr; gap: 10px; align-items:center; }
+    .play { width:56px; height:56px; border:0; border-radius:16px; background:linear-gradient(135deg, var(--c-3), var(--c-1)); color:#041315; font-weight:800; cursor:pointer; box-shadow:0 10px 24px rgba(6,182,212,.35); }
+    .play[aria-pressed="true"] { background: linear-gradient(135deg, var(--c-2), var(--c-4)); box-shadow:0 10px 24px rgba(249,115,22,.35); }
+    .track { font-weight:700; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .seek { width:100%; appearance:none; height:6px; border-radius:999px; background:rgba(255,255,255,.15); }
+    .seek::-webkit-slider-thumb { appearance:none; width:14px; height:14px; border-radius:50%; background:white; box-shadow:0 0 0 4px rgba(124,58,237,.35); }
+
+    .celebrate { display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 8px; }
+    .celebrate img { width:100%; height:140px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.1); }
+
+    /* Form */
+    form { display:grid; gap:12px; }
+    .grid-2, .grid-3 { display:grid; grid-template-columns: 1fr; gap:12px; }
+    label { font-weight:600; font-size:.92rem; color:var(--c-ink); }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+      width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); color:#fff; outline:none;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .hint { font-size:.8rem; color:var(--c-ink-dim); }
+
+    .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px; font-weight:800; border:0; border-radius:16px; background:linear-gradient(120deg, var(--c-2), var(--c-1)); color:white; cursor:pointer; box-shadow:0 14px 40px rgba(249,115,22,.35); width: 100%; }
+
+    /* Banners de bolos */
+    .banners { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:12px; }
+    .banner { display:block; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05); aspect-ratio:16/9; position:relative; }
+    .banner img { width:100%; height:100%; object-fit:cover; }
+    .banner::after { content: "Encomendar bolo ➜"; position:absolute; right:10px; bottom:8px; font-weight:800; font-size:.9rem; padding:8px 10px; border-radius:999px; background: rgba(0,0,0,.45); }
+
+    /* Sobre nós */
+    .about { display:grid; grid-template-columns: 1fr; gap:16px; align-items:center; }
+    .about img { width:100%; border-radius:18px; border:1px solid rgba(255,255,255,.1); box-shadow: var(--shadow-card); }
+
+    footer { padding: 40px 0 80px; color: var(--c-ink-dim); text-align: center; }
+
+    /* Cookie/Consent opaco e responsivo */
+    .cookie-bar { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 50; display: none; }
+    .cookie-inner { background: #0f172a; color: #fff; border:1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 12px; box-shadow: var(--shadow-card); }
+    .cookie-row { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .cookie-btn { padding: 10px 14px; border-radius: 12px; border: 0; font-weight: 800; background: linear-gradient(90deg, var(--c-3), var(--c-4)); color: #041315; }
+
+    /* Thank you overlay */
+    .ty { position: fixed; inset: 0; background: rgba(5,7,12,.9); color: #fff; display: none; align-items: center; justify-content: center; text-align: center; padding: 20px; z-index: 60; }
+    .ty .box { max-width: 720px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 24px; box-shadow: var(--shadow-card); }
+    .ty h3 { margin: 0 0 8px; font-family: Poppins, Inter, sans-serif; }
+
+    /* Desktop refinements */
+    @media (min-width: 900px) {
+      .hero { grid-template-columns: 1.1fr 1fr; }
+      .about { grid-template-columns: 1.1fr 1fr; }
+      .grid-2 { grid-template-columns: repeat(2,1fr); }
+      .grid-3 { grid-template-columns: repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-anim"></div>
+  <div id="notes"></div>
+
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <div style="font-size:26px">🎉🎵</div>
+        <b>Parabéns Cantados</b>
+      </div>
+      <nav>
+        <a href="#encomenda">Encomendar música</a>
+        <a href="#bolos">Bolos parceiros</a>
+        <a href="#sobre">Sobre nós</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="wrap hero" aria-labelledby="h1">
+      <div>
+        <h1 id="h1" class="gradient-text">Oferece a melhor prenda de sempre! Uma música <span style="white-space:nowrap">100% personalizada</span> para o aniversariante.</h1>
+        <p>Letra e interpretação profissionais em português de Portugal, criada a partir das tuas inputs e entregue rapidamente. É memorável, divertida e única ✨</p>
+        <a class="cta" href="#encomenda">Encomendar já ➜</a>
+      </div>
+      <div class="card">
+        <div style="display:grid; gap:10px;">
+          <label for="styleSel">Escolhe o estilo musical</label>
+          <select id="styleSel" aria-label="Estilo musical"></select>
+          <div class="player">
+            <button id="playBtn" class="play" aria-pressed="false" aria-label="Reproduzir">▶</button>
+            <div>
+              <div class="track" id="trackTitle">—</div>
+              <input id="seek" class="seek" type="range" min="0" max="100" value="0" />
+              <div class="hint"><span id="cur">0:00</span> • <span id="dur">0:00</span></div>
+              <audio id="audio" preload="none"></audio>
+            </div>
+          </div>
+          <div class="hint">Exemplo ilustrativo. A tua música será criada de raiz com base no que nos disseres.</div>
+          <div class="celebrate">
+            <img alt="Amigos a celebrar aniversário" src="https://images.pexels.com/photos/7561326/pexels-photo-7561326.jpeg" />
+            <img alt="Família a cantar os parabéns" src="https://images.pexels.com/photos/7867281/pexels-photo-7867281.jpeg" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENCOMENDA -->
+    <section id="encomenda" class="wrap">
+      <h2 style="font-family:Poppins,Inter,sans-serif; font-weight:800; font-size:clamp(22px,3.5vw,34px); margin:0 0 10px;">Encomenda a tua música personalizada</h2>
+      <p class="hint">Preenche o que conseguires (opcional). <strong>Obrigatório:</strong> nome do/a aniversariante e o teu email para envio.</p>
+
+      <form id="orderForm" novalidate>
+        <div class="grid-3">
+          <div>
+            <label>Nome do/a aniversariante <span style="opacity:.7">(obrigatório)</span></label>
+            <input data-persist required name="nome" type="text" placeholder="Ex.: Inês" />
+          </div>
+          <div>
+            <label>Idade que faz</label>
+            <input data-persist name="idade" type="number" inputmode="numeric" step="1" min="0" pattern="\\d*" placeholder="Ex.: 30" />
+          </div>
+          <div>
+            <label>Género</label>
+            <select data-persist name="genero">
+              <option value="">Prefiro não dizer</option>
+              <option>Feminino</option>
+              <option>Masculino</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label>Naturalidade (onde nasceu)</label>
+            <input data-persist name="naturalidade" type="text" placeholder="Ex.: Coimbra" />
+          </div>
+          <div>
+            <label>Reside em</label>
+            <input data-persist name="reside" type="text" placeholder="Ex.: Lisboa" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label>Onde trabalha</label>
+            <input data-persist name="trabalho" type="text" placeholder="Ex.: Designer na XPTO" />
+          </div>
+          <div>
+            <label>Onde estudou</label>
+            <input data-persist name="estudos" type="text" placeholder="Ex.: ESAD — Design Gráfico" />
+          </div>
+        </div>
+
+        <div>
+          <label>Coisas engraçadas / histórias / gostos</label>
+          <textarea data-persist name="curiosidades" placeholder="Tiques, expressões, piadas internas, hobby favorito, equipa do coração…"></textarea>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label>O teu email</label>
+            <input data-persist name="email" type="email" placeholder="nome@exemplo.pt" />
+          </div>
+          <div>
+            <label>O teu telefone <span style="opacity:.7">(obrigatório)</span></label>
+            <input data-persist required name="telefone" type="tel" placeholder="9xx xxx xxx" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label>Estilo escolhido</label>
+            <input data-persist name="estilo" id="estiloEcho" type="text" readonly />
+          </div>
+          <div>
+            <label>Mensagem ao produtor</label>
+            <input data-persist name="mensagemProdutor" type="text" placeholder="Qualquer detalhe final ou pedido específico" />
+          </div>
+        </div>
+
+        <button id="submitBtn" class="btn-primary" type="submit">🎁 Encomendar a música</button>
+        <div id="formMsg" class="hint" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- BOLOS PARCEIROS -->
+    <section id="bolos" class="wrap">
+      <h2 style="font-family:Poppins,Inter,sans-serif; font-weight:800; font-size:clamp(22px,3.5vw,34px); margin:0 0 10px;">Quer um bolo que combine com a música?</h2>
+      <p class="hint">Encomenda já nas nossas pastelarias parceiras — deliciosas e prontas a festejar.</p>
+      <a class="cta" style="margin:10px 0 16px; display:inline-flex;" href="#bolos">Encomendar bolo de aniversário ➜</a>
+
+      <div class="banners">
+        <a class="banner" href="#" target="_blank" rel="noopener">
+          <img alt="Pastelaria parceira 1" src="https://images.unsplash.com/photo-1552689486-f6773047d19f?q=80&w=1200&auto=format&fit=crop" />
+        </a>
+        <a class="banner" href="#" target="_blank" rel="noopener">
+          <img alt="Pastelaria parceira 2" src="https://images.unsplash.com/photo-1541976076758-347942db1972?q=80&w=1200&auto=format&fit=crop" />
+        </a>
+        <a class="banner" href="#" target="_blank" rel="noopener">
+          <img alt="Pastelaria parceira 3" src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40b?q=80&w=1200&auto=format&fit=crop" />
+        </a>
+        <a class="banner" href="#" target="_blank" rel="noopener">
+          <img alt="Pastelaria parceira 4" src="https://images.unsplash.com/photo-1541782814459-bb2af2f05b55?q=80&w=1200&auto=format&fit=crop" />
+        </a>
+      </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section id="sobre" class="wrap about">
+      <div>
+        <h2 style="font-family:Poppins,Inter,sans-serif; font-weight:800; font-size:clamp(22px,3.5vw,34px); margin:0 0 10px;">Quem somos</h2>
+        <p class="hint">Produção musical local • Qualidade profissional • Entrega rápida</p>
+        <p>Somos um grupo de produtores e músicos de Portugal que quis trazer uma nova forma de dar os parabéns com carinho e criatividade. Fazemos canções exclusivas que contam a história e os detalhes de quem mais gostas: nome, idade, manias, memórias, piadas internas e tudo o que nos queiras dizer. O resultado? Uma música original com <em>letra e interpretação profissionais</em>, a um preço acessível e sem pagar a influencers como no Cameo — apoiando a produção local.</p>
+        <p>Ficamos encandeados sempre que nos contam como o aniversariante ouviu a música pela primeira vez, <strong>pôs bem alto</strong>, e quis repetir mais e mais. É <em>memorável</em>, <em>único</em> e fica para sempre.</p>
+      </div>
+      <img alt="Equipa a produzir música personalizada" src="https://images.pexels.com/photos/7802586/pexels-photo-7802586.jpeg" />
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="year"></span> Parabéns Cantados — McMinsky, Lisboa. Todos os direitos reservados.</div>
+      <div style="margin-top:6px">ID do utilizador: <code id="uidPrint">—</code></div>
+    </div>
+  </footer>
+
+  <!-- COOKIE / CONSENT BAR (opaco) -->
+  <div id="cookieBar" class="cookie-bar" role="dialog" aria-live="polite" aria-label="Consentimento de cookies e termos">
+    <div class="cookie-inner">
+      <div class="cookie-row">
+        <div>
+          <strong>Bem-vindo/a ao Parabéns Cantados!</strong>
+          <div class="hint">Usamos cookies essenciais e guardamos um ID anónimo e o rascunho do formulário para prestar o serviço. Lê os <a href="#" id="linkTermos">termos</a> e a <a href="#" id="linkCookies">política de cookies</a>. Ao continuar, concordas com ambos.</div>
+        </div>
+        <button id="cookieAccept" class="cookie-btn">Aceitar e continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialog: Termos -->
+  <dialog id="dlgTermos">
+    <div class="dialog-body">
+      <h3>Termos & Condições — McMinsky (Lisboa)</h3>
+      <p>Estes Termos regem o uso do site <em>Parabéns Cantados</em> (o “Serviço”). Ao utilizá-lo, concorda com estes Termos.</p>
+      <ul>
+        <li><strong>Prestação do serviço:</strong> criamos uma música personalizada com base nas informações fornecidas por si. A entrega é digital. Prazos médios são indicativos.</li>
+        <li><strong>Conteúdos fornecidos:</strong> é responsável por garantir que os textos/informações não infringem direitos de terceiros, são verdadeiros e não ofensivos.</li>
+        <li><strong>Direitos de utilização:</strong> após entrega pode partilhar a música em contexto pessoal/social. Uso comercial e edição pública carecem de autorização prévia.</li>
+        <li><strong>Pagamentos e reembolsos:</strong> informações detalhadas serão fornecidas antes da produção final. Poderá haver um excerto de pré-escuta.</li>
+        <li><strong>Limitação de responsabilidade:</strong> o Serviço é prestado “tal como está”. Não nos responsabilizamos por interrupções técnicas ou atrasos fora do nosso controlo.</li>
+        <li><strong>Suporte:</strong> contacto por email/telefone fornecidos no formulário.</li>
+        <li><strong>Lei aplicável:</strong> legislação portuguesa e RGPD (GDPR).</li>
+      </ul>
+      <button onclick="document.getElementById('dlgTermos').close()" class="btn-primary" style="padding:10px 14px;">Fechar</button>
+    </div>
+  </dialog>
+
+  <!-- Dialog: Cookies -->
+  <dialog id="dlgCookies">
+    <div class="dialog-body">
+      <h3>Política de Cookies — McMinsky (Lisboa)</h3>
+      <p>Usamos apenas cookies/armazenamento local essenciais para:</p>
+      <ul>
+        <li>Gerar e guardar um <strong>ID anónimo</strong> do utilizador no <code>localStorage</code> para melhorar a experiência e registar eventos (visita, encomenda).</li>
+        <li><strong>Auto‑gravar dados do formulário</strong> no seu dispositivo para que não se percam. Os dados são removidos quando submete a encomenda.</li>
+        <li>Enviar registos de utilização para um <strong>Google Form</strong> da McMinsky. Não vendemos dados a terceiros.</li>
+      </ul>
+      <p>Pode apagar os dados a qualquer momento limpando o armazenamento do navegador. Para mais informação contacte-nos.</p>
+      <button onclick="document.getElementById('dlgCookies').close()" class="btn-primary" style="padding:10px 14px;">Fechar</button>
+    </div>
+  </dialog>
+
+  <!-- Confetti lib -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+
+  <script>
+    /********************************************************************
+     * DEMOS DE ÁUDIO
+     ********************************************************************/
+    const DEMO_TRACKS = [
+      { key: 'fado', label: 'Fado', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+      { key: 'rap', label: 'Rap / Trap', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
+      { key: 'eletronico', label: 'Eletrónico', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
+      { key: 'pop', label: 'Pop', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+      { key: 'rock', label: 'Rock', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' }
+    ];
+
+    /********************************************************************
+     * GOOGLE FORMS CONFIG (2 campos)
+     ********************************************************************/
+    const CONTACT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeSGGY8vksnVVvt7h1Cb9fyfILrBAWr0zsP3bdANhexuKimGw/formResponse";
+    const FIELD_EVENT = "entry.1962600437";   // "visita no site" | "encomenda efetuada"
+    const FIELD_PAYLD = "entry.656835352";    // payload livre
+
+    function sendToGoogleForms(formData) {
+      return fetch(CONTACT_FORM_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString()
+      }).then(() => console.log("[GF] Submissão tentada.")).catch(err => console.error("[GF] Erro:", err));
+    }
+
+    /********************************************************************
+    * UID + CONSENT + DRAFT
+    ********************************************************************/
+    const LS_KEYS = { uid:'pc_uid', draft:'pc_order_draft', terms:'pc_terms_ok', cookies:'pc_cookies_ok' };
+
+    function getUID(){ let id = localStorage.getItem(LS_KEYS.uid); if(!id){ id = (crypto && crypto.randomUUID) ? crypto.randomUUID() : 'pc_'+Math.random().toString(36).slice(2)+Date.now().toString(36); localStorage.setItem(LS_KEYS.uid,id);} return id; }
+    function nowISO(){ return new Date().toISOString(); }
+
+    function showCookieBarIfNeeded(hadUidBefore){ const ok = localStorage.getItem(LS_KEYS.terms)==='1' && localStorage.getItem(LS_KEYS.cookies)==='1'; if(!ok && !hadUidBefore){ document.getElementById('cookieBar').style.display='block'; } }
+
+    function wireCookieBar(){
+      document.getElementById('linkTermos').addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('dlgTermos').showModal(); });
+      document.getElementById('linkCookies').addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('dlgCookies').showModal(); });
+      document.getElementById('cookieAccept').addEventListener('click', ()=>{ localStorage.setItem(LS_KEYS.terms,'1'); localStorage.setItem(LS_KEYS.cookies,'1'); document.getElementById('cookieBar').style.display='none'; });
+    }
+
+    function saveDraft(){ const form=document.getElementById('orderForm'); const data={}; [...form.querySelectorAll('[data-persist]')].forEach(el=> data[el.name]=el.value ); localStorage.setItem(LS_KEYS.draft, JSON.stringify(data)); }
+    function loadDraft(){ const raw=localStorage.getItem(LS_KEYS.draft); if(!raw) return; try{ const data=JSON.parse(raw); for(const [k,v] of Object.entries(data)){ const el=document.querySelector(`[name="${CSS.escape(k)}"]`); if(el) el.value=v; } }catch{} }
+    function clearDraft(){ localStorage.removeItem(LS_KEYS.draft); }
+
+    /********************************************************************
+     * PLAYER DEMO
+     ********************************************************************/
+    function setupPlayer(){
+      const sel=document.getElementById('styleSel');
+      DEMO_TRACKS.forEach(t=>{ const o=document.createElement('option'); o.value=t.key; o.textContent=t.label; sel.appendChild(o); });
+      const audio=document.getElementById('audio'); const play=document.getElementById('playBtn'); const seek=document.getElementById('seek'); const cur=document.getElementById('cur'); const dur=document.getElementById('dur'); const title=document.getElementById('trackTitle');
+      function setTrack(idx=0){ const t=DEMO_TRACKS[idx]; audio.src=t.url; audio.load(); title.textContent=`${t.label} — pré‑visualização`; document.getElementById('estiloEcho').value=t.label; seek.value=0; cur.textContent='0:00'; dur.textContent='0:00'; }
+      function fmt(n){ const m=Math.floor(n/60), s=Math.floor(n%60); return `${m}:${String(s).padStart(2,'0')}`; }
+      play.addEventListener('click',()=>{ if(audio.paused){ audio.play(); play.setAttribute('aria-pressed','true'); play.textContent='⏸'; }else{ audio.pause(); play.setAttribute('aria-pressed','false'); play.textContent='▶'; } });
+      audio.addEventListener('timeupdate',()=>{ if(audio.duration){ seek.value=(audio.currentTime/audio.duration)*100; cur.textContent=fmt(audio.currentTime); dur.textContent=fmt(audio.duration); }});
+      seek.addEventListener('input',()=>{ if(audio.duration){ audio.currentTime=(seek.value/100)*audio.duration; }});
+      sel.addEventListener('change',()=>{ const idx=DEMO_TRACKS.findIndex(t=>t.key===sel.value); setTrack(idx); if(!audio.paused){ audio.play(); } });
+      sel.selectedIndex=0; setTrack(0);
+    }
+
+    /********************************************************************
+     * SUBMISSÕES (visita / encomenda)
+     ********************************************************************/
+    function logVisit(uid){ const fd=new URLSearchParams(); fd.append(FIELD_EVENT,'visita no site'); const stamp=new Date(); const payload=`${uid} | ${stamp.toLocaleDateString()} ${stamp.toLocaleTimeString()}`; fd.append(FIELD_PAYLD,payload); return sendToGoogleForms(fd); }
+
+    function submitOrder(uid){
+      const form=document.getElementById('orderForm');
+      const nome=form.querySelector('[name="nome"]').value.trim();
+      const telefone=form.querySelector('[name="telefone"]').value.trim();
+      if(!nome || !telefone){ showFormMsg('Por favor preenche o nome do/a aniversariante e o teu contacto telefónico.', true); return; }
+      const idadeEl=form.querySelector('[name="idade"]'); if(idadeEl && idadeEl.value){ idadeEl.value=idadeEl.value.toString().replace(/\D+/g,''); }
+      const data={}; [...form.querySelectorAll('[data-persist]')].forEach(el=> data[el.name]=el.value );
+      const fd=new URLSearchParams(); fd.append(FIELD_EVENT,'encomenda efetuada'); const payload={ uid, timestamp: nowISO(), ...data }; fd.append(FIELD_PAYLD, JSON.stringify(payload)); sendToGoogleForms(fd);
+      clearDraft(); form.reset(); document.getElementById('estiloEcho').value=document.getElementById('styleSel').selectedOptions[0]?.textContent||'';
+      showThankYou(); showFormMsg('🎉 Obrigado! A tua música está a caminho — produzida e enviada para os contactos que indicaste.', false);
+    }
+
+    function showFormMsg(text, isError){ const el=document.getElementById('formMsg'); el.textContent=text; el.style.color=isError?'#ffb4b4':'#bde8ff'; }
+
+    /********************************************************************
+     * UI: Notas flutuantes
+     ********************************************************************/
+    function spawnNotes(){ const cont=document.getElementById('notes'); for(let i=0;i<16;i++){ const n=document.createElement('div'); n.className='note'; n.style.left=Math.random()*100+'vw'; n.style.bottom=(-10-Math.random()*20)+'vh'; n.style.animation=`floaty ${20+Math.random()*18}s linear ${Math.random()*12}s infinite`; n.textContent=['♪','♫','♬','🎵','🎶'][Math.floor(Math.random()*5)]; cont.appendChild(n);} }
+
+    /********************************************************************
+     * CONFETIS + OVERLAY DE OBRIGADO
+     ********************************************************************/
+    function showThankYou(){ const ov=document.getElementById('ty'); ov.style.display='flex'; const duration=2600; const end=Date.now()+duration; const colors=['#7c3aed','#f97316','#06b6d4','#22c55e','#ffffff']; (function frame(){ if(window.confetti){ confetti({particleCount:6,angle:60,spread:60,origin:{x:0},colors}); confetti({particleCount:6,angle:120,spread:60,origin:{x:1},colors}); confetti({particleCount:3,spread:360,startVelocity:50,scalar:.9,ticks:120,origin:{y:Math.random()*.5},colors}); } if(Date.now()<end) requestAnimationFrame(frame); })(); setTimeout(()=>{ ov.style.display='none'; }, 4200); }
+
+    /********************************************************************
+     * BOOTSTRAP
+     ********************************************************************/
+    (function init(){
+      document.getElementById('year').textContent=new Date().getFullYear();
+      const hadUidBefore = !!localStorage.getItem(LS_KEYS.uid);
+      const uid=getUID();
+      document.getElementById('uidPrint').textContent=uid;
+      showCookieBarIfNeeded(hadUidBefore);
+      wireCookieBar();
+      setupPlayer();
+      loadDraft();
+      document.getElementById('orderForm').addEventListener('input', saveDraft);
+      document.getElementById('orderForm').addEventListener('submit',(e)=>{ e.preventDefault(); submitOrder(uid); });
+      const styleSel=document.getElementById('styleSel'); document.getElementById('estiloEcho').value=styleSel.selectedOptions[0]?.textContent||''; styleSel.addEventListener('change',()=>{ document.getElementById('estiloEcho').value=styleSel.selectedOptions[0]?.textContent||''; saveDraft(); });
+      const idadeEl=document.querySelector('[name="idade"]'); if(idadeEl) idadeEl.addEventListener('input',()=>{ idadeEl.value=idadeEl.value.replace(/\D+/g,''); });
+      logVisit(uid);
+      spawnNotes();
+    })();
+  </script>
+
+  <!-- Overlay de obrigado -->
+  <div id="ty" class="ty" role="dialog" aria-live="assertive" aria-label="Obrigado pela encomenda">
+    <div class="box">
+      <h3>🎉 Obrigado!</h3>
+      <p>A tua música personalizada vai ser produzida já de seguida. Receberás novidades no email indicado. 🎶</p>
+      <p class="hint">Se te lembraste de mais detalhes sobre o/a aniversariante, responde ao email que vais receber com essas notas.</p>
+    </div>
+  </div>
+</body>
+</html>
