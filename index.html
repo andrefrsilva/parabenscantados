@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parabéns Cantados — letra e música personalizadas em PT-PT</title>
-  <meta name="description" content="Oferece a melhor prenda de sempre! Música de aniversário personalizada (letra e voz profissionais em português de Portugal) entregue rapidamente. Também encomendamos bolos nas melhores pastelarias parceiras." />
+  <title>Parabéns Cantados — oferece a prenda mais memorável!</title>
+  <meta name="description" content="Letra e música personalizadas. Cantado em português de Portugal por profissionais. Encomenda já e recebe o produto final a tempo de fazeres um brilharete no aniversário. Também encomendamos bolos nas melhores pastelarias parceiras." />
   <link rel="canonical" href="https://parabenscantados.me/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E" />
 
@@ -16,10 +16,10 @@
   <meta property="og:image" content="https://images.pexels.com/photos/7561326/pexels-photo-7561326.jpeg" />
   <meta property="og:image:alt" content="Amigos a festejar aniversário" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Parabéns Cantados — a prenda mais memorável" />
-  <meta name="twitter:description" content="Música personalizada de aniversário com voz profissional (PT-PT)." />
+  <meta name="twitter:title" content="Parabéns Cantados — oferece a prenda mais memorável!" />
+  <meta name="twitter:description" content="Letra e música personalizadas. Cantado em português de Portugal por profissionais. Encomenda já e recebe o produto final a tempo de fazeres um brilharete no aniversário." />
   <meta name="twitter:image" content="https://images.pexels.com/photos/7561326/pexels-photo-7561326.jpeg" />
-
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,28 +116,29 @@
 
     .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px; font-weight:800; border:0; border-radius:16px; background:linear-gradient(120deg, var(--c-2), var(--c-1)); color:white; cursor:pointer; box-shadow:0 14px 40px rgba(249,115,22,.35); width: 100%; }
 
-    /* Banners de bolos */
+    /* (ANTIGO) Banners de bolos – já não usado */
     .banners { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:12px; }
     .banner { display:block; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05); aspect-ratio:16/9; position:relative; }
     .banner img { width:100%; height:100%; object-fit:cover; }
     .banner::after { content: "Encomendar bolo ➜"; position:absolute; right:10px; bottom:8px; font-weight:800; font-size:.9rem; padding:8px 10px; border-radius:999px; background: rgba(0,0,0,.45); }
 
-    /* Sobre nós */
-    .about { display:grid; grid-template-columns: 1fr; gap:16px; align-items:center; }
-    .about img { width:100%; border-radius:18px; border:1px solid rgba(255,255,255,.1); box-shadow: var(--shadow-card); }
+    /* PARCEIROS: cartões responsivos com banner + nome + localização */
+    .partner-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:12px; }
+    .partner-card{ display:flex; flex-direction:column; gap:8px; }
+    .partner-banner{ display:block; position:relative; border-radius:18px; overflow:hidden; aspect-ratio:16/9; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); }
+    .partner-banner img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .partner-banner::after{ content: "Encomendar bolo ➜"; position:absolute; right:10px; bottom:8px; font-weight:800; font-size:.9rem; padding:8px 10px; border-radius:999px; background: rgba(0,0,0,.45); color:#fff; }
+    .partner-meta{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 2px; }
+    .partner-name{ font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .partner-loc{ font-size:.9rem; color:#b9f3ff; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .partner-loc:hover{ text-decoration:underline; }
+    .pin{ margin-right:6px; opacity:.9; }
 
-    footer { padding: 40px 0 80px; color: var(--c-ink-dim); text-align: center; }
-
-    /* Cookie/Consent opaco e responsivo */
-    .cookie-bar { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 50; display: none; }
-    .cookie-inner { background: #0f172a; color: #fff; border:1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 12px; box-shadow: var(--shadow-card); }
-    .cookie-row { display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-    .cookie-btn { padding: 10px 14px; border-radius: 12px; border: 0; font-weight: 800; background: linear-gradient(90deg, var(--c-3), var(--c-4)); color: #041315; }
-
-    /* Thank you overlay */
-    .ty { position: fixed; inset: 0; background: rgba(5,7,12,.9); color: #fff; display: none; align-items: center; justify-content: center; text-align: center; padding: 20px; z-index: 60; }
-    .ty .box { max-width: 720px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 24px; box-shadow: var(--shadow-card); }
-    .ty h3 { margin: 0 0 8px; font-family: Poppins, Inter, sans-serif; }
+    /* FIX SELECT DESKTOP: evita texto “branco em branco” ao abrir a lista */
+    @media (pointer: fine) {
+      select { background:#fff; color:#111; border-color: rgba(0,0,0,.15); }
+      option { background:#fff; color:#111; }
+    }
 
     /* Desktop refinements */
     @media (min-width: 900px) {
@@ -282,20 +283,52 @@
       <p class="hint">Encomenda já nas nossas pastelarias parceiras — deliciosas e prontas a festejar.</p>
       <a class="cta" style="margin:10px 0 16px; display:inline-flex;" href="#bolos">Encomendar bolo de aniversário ➜</a>
 
-      <div class="banners">
-        <a class="banner" href="#" target="_blank" rel="noopener">
-          <img alt="Pastelaria parceira 1" src="https://images.unsplash.com/photo-1552689486-f6773047d19f?q=80&w=1200&auto=format&fit=crop" />
-        </a>
-        <a class="banner" href="#" target="_blank" rel="noopener">
-          <img alt="Pastelaria parceira 2" src="https://images.unsplash.com/photo-1541976076758-347942db1972?q=80&w=1200&auto=format&fit=crop" />
-        </a>
-        <a class="banner" href="#" target="_blank" rel="noopener">
-          <img alt="Pastelaria parceira 3" src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40b?q=80&w=1200&auto=format&fit=crop" />
-        </a>
-        <a class="banner" href="#" target="_blank" rel="noopener">
-          <img alt="Pastelaria parceira 4" src="https://images.unsplash.com/photo-1541782814459-bb2af2f05b55?q=80&w=1200&auto=format&fit=crop" />
-        </a>
+      <!-- PARCEIROS: DUPLICA QUALQUER .partner-card PARA ADICIONAR MAIS PASTELARIAS -->
+      <div class="partner-grid">
+        <!-- CARD 1 (exemplo com os teus links de exemplo) -->
+        <div class="partner-card">
+          <!-- Link do BANNER (site da pastelaria) -->
+          <a class="partner-banner" href="https://site-da-pastelaria.pt" target="_blank" rel="noopener">
+            <!-- Imagem/banner (adapta-se sempre ao espaço) -->
+            <img src="https://i.postimg.cc/gJsZf18p/image.png" alt="Banner da Pastelaria Filipe" loading="lazy" decoding="async" />
+          </a>
+          <div class="partner-meta">
+            <!-- Nome (texto, sem link) -->
+            <div class="partner-name">Pastelaria Filipe</div>
+            <!-- Localização (texto com link para Google Maps) -->
+            <a class="partner-loc" href="https://maps.app.goo.gl/DZ4hTAxs9fPyickW8" target="_blank" rel="noopener" title="Abrir no Google Maps">
+              <span class="pin">📍</span> Camarate, Lisboa
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2 (placeholder; edita href/src/textos) -->
+        <div class="partner-card">
+          <a class="partner-banner" href="https://pastelaria-exemplo.pt" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f?q=80&w=1200&auto=format&fit=crop" alt="Pastelaria Doce Tentação — banner" loading="lazy" decoding="async" />
+          </a>
+          <div class="partner-meta">
+            <div class="partner-name">Pastelaria Doce Tentação</div>
+            <a class="partner-loc" href="https://maps.app.goo.gl/abcdef" target="_blank" rel="noopener" title="Abrir no Google Maps">
+              <span class="pin">📍</span> Porto
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3 (placeholder) -->
+        <div class="partner-card">
+          <a class="partner-banner" href="https://exemplo-pastelaria.com" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1541976076758-347942db1972?q=80&w=1200&auto=format&fit=crop" alt="Pastelaria Bolo Rei — banner" loading="lazy" decoding="async" />
+          </a>
+          <div class="partner-meta">
+            <div class="partner-name">Pastelaria Bolo Rei</div>
+            <a class="partner-loc" href="https://maps.app.goo.gl/hijklmn" target="_blank" rel="noopener" title="Abrir no Google Maps">
+              <span class="pin">📍</span> Coimbra
+            </a>
+          </div>
+        </div>
       </div>
+      <!-- /partner-grid -->
     </section>
 
     <!-- SOBRE NÓS -->
@@ -356,7 +389,7 @@
       <p>Usamos apenas cookies/armazenamento local essenciais para:</p>
       <ul>
         <li>Gerar e guardar um <strong>ID anónimo</strong> do utilizador no <code>localStorage</code> para melhorar a experiência e registar eventos (visita, encomenda).</li>
-        <li><strong>Auto‑gravar dados do formulário</strong> no seu dispositivo para que não se percam. Os dados são removidos quando submete a encomenda.</li>
+        <li><strong>Auto-gravar dados do formulário</strong> no seu dispositivo para que não se percam. Os dados são removidos quando submete a encomenda.</li>
         <li>Enviar registos de utilização para um <strong>Google Form</strong> da McMinsky. Não vendemos dados a terceiros.</li>
       </ul>
       <p>Pode apagar os dados a qualquer momento limpando o armazenamento do navegador. Para mais informação contacte-nos.</p>
@@ -420,7 +453,7 @@
       const sel=document.getElementById('styleSel');
       DEMO_TRACKS.forEach(t=>{ const o=document.createElement('option'); o.value=t.key; o.textContent=t.label; sel.appendChild(o); });
       const audio=document.getElementById('audio'); const play=document.getElementById('playBtn'); const seek=document.getElementById('seek'); const cur=document.getElementById('cur'); const dur=document.getElementById('dur'); const title=document.getElementById('trackTitle');
-      function setTrack(idx=0){ const t=DEMO_TRACKS[idx]; audio.src=t.url; audio.load(); title.textContent=`${t.label} — pré‑visualização`; document.getElementById('estiloEcho').value=t.label; seek.value=0; cur.textContent='0:00'; dur.textContent='0:00'; }
+      function setTrack(idx=0){ const t=DEMO_TRACKS[idx]; audio.src=t.url; audio.load(); title.textContent=`${t.label} — pré-visualização`; document.getElementById('estiloEcho').value=t.label; seek.value=0; cur.textContent='0:00'; dur.textContent='0:00'; }
       function fmt(n){ const m=Math.floor(n/60), s=Math.floor(n%60); return `${m}:${String(s).padStart(2,'0')}`; }
       play.addEventListener('click',()=>{ if(audio.paused){ audio.play(); play.setAttribute('aria-pressed','true'); play.textContent='⏸'; }else{ audio.pause(); play.setAttribute('aria-pressed','false'); play.textContent='▶'; } });
       audio.addEventListener('timeupdate',()=>{ if(audio.duration){ seek.value=(audio.currentTime/audio.duration)*100; cur.textContent=fmt(audio.currentTime); dur.textContent=fmt(audio.duration); }});
@@ -489,6 +522,7 @@
   </div>
 </body>
 </html>
+
 
 
 
