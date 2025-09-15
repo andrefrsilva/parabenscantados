@@ -476,7 +476,7 @@
       const data={}; [...form.querySelectorAll('[data-persist]')].forEach(el=> data[el.name]=el.value );
       const fd=new URLSearchParams(); fd.append(FIELD_EVENT,'encomenda efetuada'); const payload={ uid, timestamp: nowISO(), ...data }; fd.append(FIELD_PAYLD, JSON.stringify(payload)); sendToGoogleForms(fd);
       clearDraft(); form.reset(); document.getElementById('estiloEcho').value=document.getElementById('styleSel').selectedOptions[0]?.textContent||'';
-      showThankYou(); showFormMsg('🎉 Obrigado! A tua música está a caminho — produzida e enviada para os contactos que indicaste.', false);
+      showThankYou(); showFormMsg('🎉 Obrigado! A música vai agora ser criada pela nossa equipa e enviada para o contacto que indicaste para avaliares e fazeres o pagamento.', false);
     }
 
     function showFormMsg(text, isError){ const el=document.getElementById('formMsg'); el.textContent=text; el.style.color=isError?'#ffb4b4':'#bde8ff'; }
@@ -522,6 +522,7 @@
   </div>
 </body>
 </html>
+
 
 
 
