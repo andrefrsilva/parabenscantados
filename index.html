@@ -150,6 +150,41 @@
       .grid-2{grid-template-columns:repeat(2,1fr)}
       .grid-3{grid-template-columns:repeat(3,1fr)}
     }
+
+    /* Equipa */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.team-card {
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 14px;
+}
+.team-card img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.team-meta {
+  padding: 10px;
+}
+.team-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.team-role {
+  font-size: .9rem;
+  color: var(--c-ink-dim);
+}
+
   </style>
 </head>
 <body>
@@ -342,6 +377,72 @@
       </div>
       <img alt="Equipa a produzir música personalizada" src="https://images.pexels.com/photos/7802586/pexels-photo-7802586.jpeg" />
     </section>
+
+    <!-- EQUIPA -->
+    <section id="equipa" class="wrap">
+      <h2 style="font-family:Poppins,Inter,sans-serif; font-weight:800; font-size:clamp(22px,3.5vw,34px); margin:0 0 10px;">A nossa equipa</h2>
+      <p class="hint">Músicos, cantores e produtores portugueses prontos a dar vida à tua prenda memorável.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://i.postimg.cc/wBQt1Hqy/image.png" alt="Foto de João Martins" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">João Martins</div>
+            <div class="team-role">Produtor & Multi-instrumentista</div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://i.postimg.cc/j2gPLThQ/image.png" alt="Foto de Ana Ferreira" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">Ana Ferreira</div>
+            <div class="team-role">Cantora & Letrista</div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://i.postimg.cc/1XC7PLnb/image.png" alt="Foto de Miguel Costa" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">Miguel Costa</div>
+            <div class="team-role">Guitarrista & Arranjos</div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://i.postimg.cc/C51fytVZ/image.png" alt="Foto de Sofia Carvalho" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">Sofia Carvalho</div>
+            <div class="team-role">Produtora vocal & Edição</div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://i.postimg.cc/zX4HM02B/image.png" alt="Foto de Ricardo Lopes" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">Ricardo Lopes</div>
+            <div class="team-role">Baterista & Percussões</div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://i.postimg.cc/zBMqBPgH/image.png" alt="Foto de Inês Almeida" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">Inês Almeida</div>
+            <div class="team-role">Cantora & Piano</div>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <img src="https://i.postimg.cc/1XtMWJCB/image.png" alt="Foto de Catarina Silva" loading="lazy" decoding="async">
+          <div class="team-meta">
+            <div class="team-name">Catarina Silva</div>
+            <div class="team-role">Voz principal & Harmonia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
   </main>
 
   <footer>
@@ -645,6 +746,7 @@
   </div>
 </body>
 </html>
+
 
 
 
